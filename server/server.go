@@ -22,7 +22,7 @@ func StartServer() {
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
 
 	apiRouter := r.PathPrefix("/api").Subrouter()
-	apiRouter.HandleFunc("/book/:id", api.GetBookById)
+	apiRouter.HandleFunc("/book/{id}", api.GetBookById)
 
 	muxGroup := http.NewServeMux()
 	muxGroup.Handle("/", r)

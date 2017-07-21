@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	_ "github.com/mattn/go-sqlite3"
 	"github.com/pbtrung/Skypiea/server/app"
 )
 

@@ -54,7 +54,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	session, err := app.Store.Get(r, "auth-session")
+	session, err := app.Store.Get(r, "auth0-session")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

@@ -1,15 +1,15 @@
-$(document).ready(function() {
-    var webAuth = new auth0.WebAuth({
-      domain: AUTH0_DOMAIN,
-      clientID: AUTH0_CLIENT_ID,
-      redirectUri: AUTH0_CALLBACK_URL,
-      audience: `https://${AUTH0_DOMAIN}/userinfo`,
-      responseType: 'code',
-      scope: 'openid profile'
-    });
+var options = {
+        languageDictionary: {
+          title: "Skypiea"
+        },
+        auth: {
+          redirectUrl: AUTH0_CALLBACK_URL,
+          responseType: "code",
+          params: {
+            scope: "openid profile"
+          }
+        }
+      };
+var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, options);
 
-    $('.btn-login').click(function(e) {
-      e.preventDefault();
-      webAuth.authorize();
-    });
-});
+lock.show();

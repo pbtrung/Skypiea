@@ -7,11 +7,13 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/pbtrung/Skypiea/server/routes/callback"
+	"github.com/pbtrung/Skypiea/server/routes/home"
 )
 
 func StartServer() {
 	r := mux.NewRouter()
 
+	r.HandleFunc("/", home.HomeHandler)
 	r.HandleFunc("/callback", callback.CallbackHandler)
 
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))

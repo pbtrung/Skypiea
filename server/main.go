@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/joho/godotenv"
+	"github.com/pbtrung/Skypiea/server/app"
 )
 
 func main() {

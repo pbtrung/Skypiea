@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/pbtrung/Skypiea/server/app"
 	"golang.org/x/oauth2"
 )
 

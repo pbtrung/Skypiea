@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/pbtrung/Skypiea/server/routes/api"
 	"github.com/pbtrung/Skypiea/server/routes/callback"
 	"github.com/pbtrung/Skypiea/server/routes/home"
 	"github.com/pbtrung/Skypiea/server/routes/middlewares"
@@ -20,8 +21,8 @@ func StartServer() {
 
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
 
-	api := r.PathPrefix("/api").Subrouter()
-	api.HandleFunc("/book/:id", api.GetBookById)
+	apiRouter := r.PathPrefix("/api").Subrouter()
+	apiRouter.HandleFunc("/book/:id", api.GetBookById)
 
 	muxGroup := http.NewServeMux()
 	muxGroup.Handle("/", r)
